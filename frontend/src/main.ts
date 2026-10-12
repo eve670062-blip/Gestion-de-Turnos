@@ -4,6 +4,7 @@ import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { catchError, interval, of, Subscription, startWith, switchMap } from 'rxjs';
+import { environment } from './environments/environment';
 
 interface Mesa {
   id: number;
@@ -196,7 +197,7 @@ class AppComponent implements OnInit, OnDestroy {
   private http = inject(HttpClient);
   private sub?: Subscription;
 
-  api = 'http://localhost:8000/api';
+  api = environment.apiUrl;
   estado: Estado | null = null;
   ultimoTurno: ResultadoTurno | null = null;
   mensaje = '';
