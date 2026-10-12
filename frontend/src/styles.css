@@ -375,3 +375,54 @@ button:focus-visible { outline-color: #bba9d866; }
 .display-call { min-height: 330px; border-radius: 28px; }
 @media (max-width: 900px) { .topbar { grid-template-columns: 1fr auto; } .page { width: min(100% - 42px, 760px); } .reception-card { min-height: 330px; padding: 17px; } }
 @media (max-width: 600px) { .topbar { min-height: 70px; } .main-nav { border-radius: 14px; } .main-nav button { min-height: 40px; padding: 7px 8px; } .connection { padding: 7px 9px; } .page { width: calc(100% - 30px); } .view { padding-top: 29px; } .reception-card { gap: 18px; padding: 17px; } .reception-action { padding: 8px 3px 4px; } .primary { min-height: 52px; } .ticket { min-height: 220px; } .guide-step { min-height: 60px; } .metrics { gap: 8px; margin: 18px 0 27px; } .metric { min-height: 72px; padding: 11px; border-radius: 15px; } .tables, .active-tables { gap: 9px; } .table-card { min-height: 165px; padding: 12px 10px; border-radius: 16px; } .actions button { min-height: 42px; } .display-call { min-height: 310px; } }
+
+
+/* Rediseño total: navegación lateral, jerarquía nueva y paneles pastel. */
+body { background: #f8f5f2; }
+.app { display: block; min-height: 100vh; padding: 0; }
+.topbar { position: fixed; inset: 0 auto 0 0; z-index: 20; display: flex; width: 252px; height: 100vh; flex-direction: column; align-items: stretch; gap: 0; padding: 30px 18px 22px; border: 0; border-right: 1px solid #e4d8e5; background: linear-gradient(180deg, #eee6f2 0%, #f3eaf0 52%, #f1e9e2 100%); box-shadow: 5px 0 24px #54445a0a; }
+.brand { gap: 12px; width: 100%; padding: 0 8px 25px; border-bottom: 1px solid #e0d5e4; }
+.brand-mark { width: 43px; height: 43px; border: 0; border-radius: 15px; background: linear-gradient(145deg, #fffdfa, #e4d8ec); color: #735d8b; box-shadow: 0 5px 12px #6654771a; }
+.topbar .eyebrow { color: #877794; font-size: 9px; }
+.brand h1 { margin: 2px 0 0; color: #493f51; font-size: 19px; font-weight: 700; letter-spacing: -.03em; }
+.main-nav { display: grid; align-items: stretch; gap: 7px; margin-top: 30px; padding: 0; border: 0; background: transparent; box-shadow: none; }
+.main-nav button { min-height: 54px; padding: 8px 14px; border: 1px solid transparent; border-radius: 15px; background: transparent; color: #716779; text-align: left; font-size: 13px; font-weight: 620; }
+.main-nav button::before { display: inline-grid; width: 31px; height: 31px; margin-right: 11px; place-items: center; border-radius: 10px; background: #e8dfed; color: #806b95; font-size: 9px; font-weight: 750; vertical-align: middle; }
+.main-nav button:nth-child(1)::before { content: '01'; }
+.main-nav button:nth-child(2)::before { content: '02'; }
+.main-nav button:nth-child(3)::before { content: '03'; }
+.main-nav button::after { float: right; color: #ac9fb4; content: '›'; font-size: 20px; line-height: 25px; }
+.main-nav button.active { border-color: #dfd2e8; background: #fffafc; color: #655177; box-shadow: 0 5px 14px #594a550c; }
+.main-nav button.active::before { background: #e9def0; color: #6c5684; }
+.connection { justify-self: initial; gap: 8px; margin-top: auto; padding: 16px 8px 0; border: 0; border-top: 1px solid #e0d5e4; border-radius: 0; background: transparent; color: #667c64; font-size: 11px; font-weight: 650; }
+.connection.disconnected { background: transparent; color: #a56f70; }
+.connection::after { display: block; margin-top: 5px; color: #92899a; content: 'Actualización automática'; font-size: 10px; font-weight: 400; }
+.page { width: min(1100px, calc(100% - 252px - 76px)); margin: 0 auto 0 calc(252px + max(38px, (100vw - 252px - 1100px) / 2)); }
+.view { padding-top: 40px; }
+.reception-card { min-height: 340px; grid-template-columns: 1fr .9fr; gap: 18px; padding: 17px; border: 1px solid #e8dfea; border-radius: 27px; background: #fffdfb; box-shadow: 0 18px 48px #594a550d; }
+.reception-action { justify-content: center; padding: 32px 38px; border-radius: 22px; background: linear-gradient(145deg, #eee5f3, #f5edf2 62%, #f5eee4); }
+.reception-action h3 { color: #4c4155; }
+.reception-action p { color: #7c7184; }
+.primary { min-height: 56px; border-radius: 15px; background: linear-gradient(135deg, #9d87b8, #806997); box-shadow: 0 8px 19px #80699736; }
+.primary:hover:not(:disabled) { background: #735c8a; }
+.ticket { min-height: 306px; border-color: #e8dfea; border-radius: 22px; background: radial-gradient(ellipse at 50% 0%, #fffdfa 0, #f8f1ed 58%, #f0e9f2 100%); }
+.guide-step { border-color: #ebe2e8; background: #fffdfa; box-shadow: 0 4px 12px #594a5507; }
+.metric { border-color: #e9dfe7; border-radius: 20px; background: linear-gradient(145deg, #fffdfa, #f8f2f2); box-shadow: 0 6px 16px #594a5509; }
+.metric:nth-child(1) { background: linear-gradient(140deg, #f1eaf5, #fffdfa 80%); }
+.metric:nth-child(2) { background: linear-gradient(140deg, #eef3e9, #fffdfa 80%); }
+.metric:nth-child(3) { background: linear-gradient(140deg, #f7f0e3, #fffdfa 80%); }
+.table-card { border-color: #e9dfe7; border-radius: 19px; background: linear-gradient(160deg, #fffdfa, #faf5f2); box-shadow: 0 6px 18px #594a5509; }
+.table-card::before { height: 4px; background: #d8c9e1; }
+.table-card.busy { border-color: #d8e3d4; background: linear-gradient(160deg, #fffdfa, #f1f5ed); }
+.table-card.busy::before { background: linear-gradient(90deg, #a4b999, #c8d6be); }
+.actions button { min-height: 46px; border-radius: 12px; }
+.queue-item { border-color: #ebe2e8; border-radius: 16px; background: #fffdfa; }
+.queue-item:first-child { border-color: #dccfe6; background: linear-gradient(110deg, #f0e9f5, #fffdfa); }
+.display-call { min-height: 330px; border-color: #e1d6e7; border-radius: 27px; background: radial-gradient(ellipse at 15% 10%, #e8ddef, transparent 46%), linear-gradient(125deg, #f0e9f3, #f5eef0 60%, #f4ece2); box-shadow: 0 18px 42px #71607916; }
+.display-turn strong { color: #5d4a71; }
+.display-destination strong { color: #7a9278; }
+.active-table { border-color: #e9dfe7; border-radius: 16px; background: #fffdfa; }
+.active-table.active { border-color: #d8e3d4; background: #f1f5ed; }
+.next-turns span:first-child { border-color: #dccfe6; background: #f0e9f5; color: #705a89; }
+@media (max-width: 900px) { .topbar { width: 218px; padding-right: 14px; padding-left: 14px; } .page { width: calc(100% - 218px - 44px); margin-left: 240px; } .reception-card { grid-template-columns: 1fr; } .reception-action { min-height: 270px; } .ticket { min-height: 235px; } .tables { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 680px) { .topbar { position: relative; display: grid; width: 100%; height: auto; grid-template-columns: 1fr auto; gap: 10px; padding: 12px 15px 10px; border-right: 0; border-bottom: 1px solid #e4d8e5; } .brand { grid-column: 1; padding: 0; border: 0; } .brand-mark { width: 36px; height: 36px; border-radius: 12px; } .brand h1 { font-size: 16px; } .main-nav { grid-row: 2; grid-column: 1 / -1; display: flex; width: 100%; gap: 5px; margin-top: 3px; padding: 4px; border: 1px solid #e6ddea; border-radius: 14px; background: #fffafc; } .main-nav button { flex: 1; min-height: 42px; padding: 6px 4px; border-radius: 10px; text-align: center; font-size: 11px; } .main-nav button::before { width: 24px; height: 24px; margin-right: 4px; border-radius: 8px; font-size: 8px; } .main-nav button::after { display: none; } .connection { grid-row: 1; grid-column: 2; justify-self: end; margin-top: 0; padding: 0; border: 0; font-size: 10px; } .connection::after { display: none; } .page { width: calc(100% - 30px); margin: 0 auto; } .view { padding-top: 26px; } .reception-card { min-height: 0; padding: 13px; border-radius: 21px; } .reception-action { min-height: 240px; padding: 22px; } .reception-action h3 { font-size: 23px; } .primary { width: 100%; min-width: 0; } .ticket { min-height: 205px; } .reception-guide { grid-template-columns: 1fr; } .guide-step { min-height: 58px; } .metrics { gap: 7px; margin: 18px 0 26px; } .metric { min-height: 73px; padding: 10px; border-radius: 14px; } .metric span { font-size: 10px; } .metric strong { font-size: 19px; } .section-heading h3 { font-size: 17px; } .table-card { min-height: 163px; padding: 12px 9px; border-radius: 14px; } .table-number { font-size: 11px; } .status-pill { padding: 5px 6px; font-size: 9px; } .actions button { min-height: 40px; padding: 6px 4px; font-size: 10px; } .queue { grid-template-columns: 1fr; } .display-call { grid-template-columns: 1fr; gap: 12px; min-height: 285px; padding: 22px 12px; } .display-divider { width: 75%; height: 1px; justify-self: center; } .display-turn strong { font-size: 76px; } .display-destination strong { font-size: 42px; } .active-tables { grid-template-columns: repeat(2, 1fr); } }
