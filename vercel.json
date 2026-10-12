@@ -1,0 +1,28 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "backend": {
+      "root": "backend",
+      "framework": "django"
+    },
+    "frontend": {
+      "root": "frontend",
+      "framework": "angular",
+      "outputDirectory": "dist/app-atencion-clientes/browser"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": {
+        "service": "backend"
+      }
+    },
+    {
+      "source": "/(.*)",
+      "destination": {
+        "service": "frontend"
+      }
+    }
+  ]
+}
