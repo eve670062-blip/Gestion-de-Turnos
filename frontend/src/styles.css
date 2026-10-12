@@ -331,3 +331,47 @@ button:focus-visible { outline-color: #bba9d866; }
   .next-turns { gap: 7px; }
   .next-turns span { flex: 1; min-width: 67px; min-height: 42px; padding: 0 10px; font-size: 14px; }
 }
+
+
+/* Interfaz reorganizada: acciones más visibles y secciones mejor separadas. */
+.topbar { min-height: 86px; grid-template-columns: auto 1fr auto; border-bottom-color: #e5d9e7; background: linear-gradient(110deg, #f0e8f4, #f6eee7 58%, #f0e9f1); }
+.main-nav { justify-self: center; gap: 6px; padding: 6px; border-color: #e6ddea; background: #fffafc; box-shadow: 0 4px 14px #594a5509; }
+.main-nav button { min-height: 42px; padding: 8px 20px; border-radius: 11px; font-size: 13px; }
+.main-nav button.active { background: #e9def0; color: #66517d; box-shadow: inset 0 0 0 1px #ded0e8; }
+.connection { padding: 9px 13px; border: 1px solid #e2e8db; border-radius: 999px; background: #f7f9f1; color: #687c64; }
+.connection.disconnected { border-color: #f0dddd; background: #fff3f1; }
+.page { width: min(1100px, calc(100% - 64px)); }
+.view { padding-top: 42px; }
+.view-heading { margin-bottom: 22px; }
+.view-heading h2, .display-heading h2 { color: #4b4053; }
+.reception-view { max-width: 1000px; }
+.reception-card { grid-template-columns: 1fr .9fr; gap: 18px; min-height: 350px; padding: 17px; border-radius: 28px; background: linear-gradient(135deg, #fffdfa, #fcf8fb); }
+.reception-action { justify-content: center; padding: 32px 38px; border-radius: 23px; background: linear-gradient(145deg, #f1eaf5, #f8f1f3 58%, #f5eee5); }
+.action-symbol { width: 50px; height: 50px; margin-bottom: 17px; border-radius: 16px; }
+.reception-action h3 { font-size: 27px; }
+.reception-action p { margin-bottom: 19px; }
+.primary { min-width: 230px; min-height: 56px; border-radius: 15px; font-size: 15px; }
+.ticket { min-height: 316px; border-radius: 23px; background: linear-gradient(155deg, #fffdf9, #f8f1ed 55%, #f1eaf3); }
+.ticket-placeholder-icon { width: 54px; height: 54px; margin-bottom: 13px; border-radius: 17px; background: #f5eff7; }
+.reception-guide { gap: 14px; margin-top: 16px; }
+.guide-step { min-height: 76px; padding: 13px 17px; border-radius: 17px; background: #fffdfa; }
+.guide-step > span { width: 36px; height: 36px; border-radius: 12px; background: #eee6f2; color: #796394; }
+.guide-step strong { font-size: 13px; }
+.guide-step small { font-size: 11px; }
+.staff-view, .display-view { padding-top: 40px; }
+.metrics { gap: 16px; margin: 24px 0 32px; }
+.metric { min-height: 104px; border-radius: 20px; }
+.section-block { margin-top: 32px; }
+.tables, .active-tables { gap: 15px; }
+.table-card { min-height: 206px; padding: 19px; border-radius: 20px; }
+.table-card.free { min-height: 182px; }
+.actions button { min-height: 46px; border-radius: 12px; }
+.call-next-button { border-color: #ded1e8; background: #f0eaf4; color: #6f5a87; }
+.call-next-button:hover:not(:disabled) { background: #e8deef; }
+.danger { border-color: #dce7d8; background: #edf3e9; color: #647e60; }
+.queue { gap: 11px; }
+.queue-item { min-height: 68px; border-radius: 16px; }
+.queue-item:first-child { border-color: #d9cce5; background: linear-gradient(110deg, #f0e9f5, #fffdfa); }
+.display-call { min-height: 330px; border-radius: 28px; }
+@media (max-width: 900px) { .topbar { grid-template-columns: 1fr auto; } .page { width: min(100% - 42px, 760px); } .reception-card { min-height: 330px; padding: 17px; } }
+@media (max-width: 600px) { .topbar { min-height: 70px; } .main-nav { border-radius: 14px; } .main-nav button { min-height: 40px; padding: 7px 8px; } .connection { padding: 7px 9px; } .page { width: calc(100% - 30px); } .view { padding-top: 29px; } .reception-card { gap: 18px; padding: 17px; } .reception-action { padding: 8px 3px 4px; } .primary { min-height: 52px; } .ticket { min-height: 220px; } .guide-step { min-height: 60px; } .metrics { gap: 8px; margin: 18px 0 27px; } .metric { min-height: 72px; padding: 11px; border-radius: 15px; } .tables, .active-tables { gap: 9px; } .table-card { min-height: 165px; padding: 12px 10px; border-radius: 16px; } .actions button { min-height: 42px; } .display-call { min-height: 310px; } }
